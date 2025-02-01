@@ -1,5 +1,5 @@
 
-const StackContent = require("../models/stackGroupSchema");
+const StackContent = require("../models/StackGroupSchema");
 const cloudinary = require("../config/cloudinaryConfig");
 
 // Upload image to Cloudinary
