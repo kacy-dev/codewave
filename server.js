@@ -9,6 +9,7 @@ const stackRoute = require('./routes/stackRoute');
 const homeRoute = require('./routes/homeRoute');
 const serviceRoute = require('./routes/serviceRoute');
 const aboutRoute = require('./routes/aboutRoute');
+const resumeRoute = require('./routes/resumeRoute');
 const stackGroupRoute = require('./routes/stackGroupRoute');
 const contactRoute = require('./routes/contactRoute');
 const projectRoute = require('./routes/projectRoute');
@@ -33,6 +34,7 @@ app.use("/api/", stackRoute);
 app.use("/api", homeRoute);
 app.use("/api", serviceRoute)
 app.use("/api/", aboutRoute);
+app.use("/api", resumeRoute);
 app.use("/api/", stackGroupRoute);
 app.use("/api", contactRoute);
 app.use('/api', projectRoute);
