@@ -4,13 +4,13 @@ const cloudinary = require('cloudinary').v2;
 // Add a new stack
 const addStack = async (req, res) => {
     try { 
-        const { toolName } = req.body;
+        const { toolName, link } = req.body;
         const imageUrl = req.file?.path; // Extract the file path from the uploaded file
 
         console.log("Uploaded File:", req.file);
 
-          if (!toolName) {
-            return res.status(400).json({ error: "Tool name is required" });
+          if (!toolName || !link ) {
+            return res.status(400).json({ error: "Tool and link are required" });
         }
 
         if (!imageUrl) {
@@ -20,6 +20,7 @@ const addStack = async (req, res) => {
         const newStack = new Stack({
             imageUrl,
             toolName,
+            link,
         });
 
         await newStack.save();
@@ -35,7 +36,7 @@ const addStack = async (req, res) => {
 const editStack = async (req, res) => {
     try {
 
-        const { toolName } = req.body;
+        const { toolName, link } = req.body;
         const stackId = req.params.id; // ID of the stack to be updated
         const imageFile = req.file; // New image file from the request
 
@@ -55,6 +56,9 @@ const editStack = async (req, res) => {
 
          if (toolName) {
             existingStack.toolName = toolName;
+        }
+         if (link) {
+            existingStack.link = link;
         }
 
         await existingStack.save();
