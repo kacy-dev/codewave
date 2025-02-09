@@ -11,6 +11,10 @@ const StackModel = new mongoose.Schema(
             type: String,
             required: true,
         },
+        link: {
+            type: String,
+            required: true, // Each stack must have a URL
+      },
     },
     { timestamps: true } // Automatically includes `createdAt` and `updatedAt`
 );
