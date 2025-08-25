@@ -58,7 +58,7 @@ const editProject = async (req, res) => {
 
 const getProjects = async (req, res) => {
     try {
-        const projects = await Projects.find();
+        const projects = await Projects.find().sort({ createdAt: -1 });
         return res.status(200).json({ projects });
     } catch (error) {
         console.error(error);
@@ -71,3 +71,4 @@ module.exports = {
     editProject,
     getProjects,
 };
+
